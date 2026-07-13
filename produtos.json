@@ -1,0 +1,162 @@
+[
+    {
+        "id" : "1",
+        "nome": "Bolo de Chocolate",
+        "preco": 5.0,
+        "sabor": "Chocolate",
+        "categoria": "Doce",
+        "estoque": 12
+    },
+    {
+        "id" : "2",
+        "nome": "Bolo de Cenoura",
+        "preco": 5.0,
+        "sabor": "Cenoura",
+        "categoria": "Doce",
+        "estoque": 10
+    },
+    {
+        "id" : "3",
+        "nome": "Bolo de Morango",
+        "preco": 6.0,
+        "sabor": "Morango",
+        "categoria": "Doce",
+        "estoque": 8
+    },
+    {
+        "id" : "4",
+        "nome": "Pastel de Carne",
+        "preco": 6.0,
+        "sabor": "Carne",
+        "categoria": "Salgado",
+        "estoque": 20
+    },
+    {
+        "id" : "5",
+        "nome": "Pastel de Frango",
+        "preco": 6.0,
+        "sabor": "Frango",
+        "categoria": "Salgado",
+        "estoque": 18
+    },
+    {
+        "id" : "6",
+        "nome": "Coxinha",
+        "preco": 5.0,
+        "sabor": "Frango",
+        "categoria": "Salgado",
+        "estoque": 25
+    },
+    {
+        "id" : "7",
+        "nome": "Enroladinho",
+        "preco": 4.5,
+        "sabor": "Salsicha",
+        "categoria": "Salgado",
+        "estoque": 18
+    },
+    {
+        "id" : "8",
+        "nome": "Mini Pizza",
+        "preco": 7.0,
+        "sabor": "Calabresa",
+        "categoria": "Salgado",
+        "estoque": 15
+    },
+    {
+        "id" : "9",
+        "nome": "Mini Pizza",
+        "preco": 7.0,
+        "sabor": "Mista",
+        "categoria": "Salgado",
+        "estoque": 15
+    },
+    {
+        "id" : "10",
+        "nome": "Mini Pizza",
+        "preco": 7.0,
+        "sabor": "Frango",
+        "categoria": "Salgado",
+        "estoque": 15
+    },
+    {
+        "id" : "11",
+        "nome": "Hambúrguer",
+        "preco": 12.0,
+        "sabor": "Tradicional",
+        "categoria": "Lanche",
+        "estoque": 10
+    },
+    {
+        "id" : "12",
+        "nome": "Hambúrguer",
+        "preco": 14.0,
+        "sabor": "Bacon",
+        "categoria": "Lanche",
+        "estoque": 8
+    },
+    {
+        "id" : "13",
+        "nome": "Cachorro-Quente",
+        "preco": 8.0,
+        "sabor": "Tradicional",
+        "categoria": "Lanche",
+        "estoque": 15
+    },
+    {
+        "id" : "14",
+        "nome": "Refrigerante",
+        "preco": 5.0,
+        "sabor": "Coca-Cola",
+        "categoria": "Bebida",
+        "estoque": 30
+    },
+    {
+        "id" : "15",
+        "nome": "Refrigerante",
+        "preco": 5.0,
+        "sabor": "Guaraná",
+        "categoria": "Bebida",
+        "estoque": 25
+    },
+    {
+        "id" : "16",
+        "nome": "Suco",
+        "preco": 5.0,
+        "sabor": "Laranja",
+        "categoria": "Bebida",
+        "estoque": 15
+    },
+    {
+        "id" : "17",
+        "nome": "Suco",
+        "preco": 5.0,
+        "sabor": "Maracujá",
+        "categoria": "Bebida",
+        "estoque": 12
+    },
+    {
+        "id" : "18",
+        "nome": "Água Mineral",
+        "preco": 3.0,
+        "sabor": "Sem gás",
+        "categoria": "Bebida",
+        "estoque": 40
+    },
+    {
+        "id" : "19",
+        "nome": "Água Mineral",
+        "preco": 3.5,
+        "sabor": "Com gás",
+        "categoria": "Bebida",
+        "estoque": 25
+    },
+    {
+        "id" : "20",
+        "nome": "Brigadeiro",
+        "preco": 3.0,
+        "sabor": "Chocolate",
+        "categoria": "Doce",
+        "estoque": 40
+    }
+]
