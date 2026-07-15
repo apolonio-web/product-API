@@ -1,77 +1,92 @@
+import requests
 import json
 from flask import Flask, request
-
-def carregar_produtos():
-    with open("produtos.json", "r", encoding="utf-8") as arquivo:
-        return json.load(arquivo)
-def salvar_produtos(produtos):
-    with open("produtos.json", "w", encoding="utf-8") as arquivo:
-        json.dump(produtos, arquivo, indent=4, ensure_ascii=False)    
-
 
 app = Flask(__name__)
 
 @app.get("/")
-def inicio():
-    return "Seja Bem vindo ao Sistema de Gereciamento de Evento"
-
+def root():
+    return "Seja bem vindo a minha api"
 
 @app.get("/produtos")
 def listar_produtos():
-     return carregar_produtos()
-
-
-@app.get("/produtos/<nome>")
-def buscar_produto(nome):
-    produtos = carregar_produtos()
-    for produto in produtos:
-        if produto["nome"].lower() == nome.lower():
-            return produto
-
-    return {"erro": "Produto não encontrado"}, 404
-
-
-@app.post("/produtos/cadastro")
+    resposta = requests.get("https://fakestoreapi.com/products")
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+     return {
+    "erro": "Falha ao consultar a Fake Store.",
+    "status": resposta.status_code
+            }, resposta.status_code
+     
+     
+@app.get("/produtos/<int:id>")
+def buscar_produtos(id):
+    resposta = requests.get(f"https://fakestoreapi.com/products/{id}")
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+     return {
+    "erro": "Falha ao consultar a Fake Store.",
+    "status": resposta.status_code
+            }, resposta.status_code
+     
+     
+@app.post("/produtos/cadastrar")
 def cadastrar_produto():
-   produtos = carregar_produtos()
-   novo_produto = request.json
-   produtos.append(novo_produto)
-   salvar_produtos(produtos)
-   return {
-        "mensagem": "Produto cadastrado com sucesso!",
-        "produto": novo_produto
-    }, 201
-   
-   
-@app.delete("/produtos/<nome>/deletar")
-def apagar_produto(nome):
-    produtos = carregar_produtos()
-    for produto in produtos:
-        if produto["nome"].lower() == nome.lower():
-            produtos.remove(produto)
-            salvar_produtos(produtos)
-
-            return {
-                "mensagem": "Produto deletado com sucesso!",
-                "produto": produto
-            }, 201
-    return {"erro" : "Produto não encontrado"}, 404 
-@app.patch("/produtos/<nome>/atualizar")
-def atualizar_produtos(nome):
-    produtos = carregar_produtos()
-    for produto in produtos:
-     if produto["nome"].lower() == nome.lower():
-         
-        produto.update(request.json)
-        salvar_produtos(produtos)
+    novo_produto = {"title": "nome" , "price" : "int:preco" ,"description": "string",
+"category": "string"}
+    resposta = requests.post("https://fakestoreapi.com/products", json=novo_produto)
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+     return {
+    "erro": "Falha ao consultar a Fake Store.",
+    "status": resposta.status_code
+            }, resposta.status_code
+     
+     
+@app.put("/produtos/<id>/atualizar")
+def atualizar_produto(id):
+    informacao = request.json
+    resposta = requests.put(f"https://fakestoreapi.com/products/{id}", json=informacao)
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+     return {
+    "erro": "Falha ao consultar a Fake Store.",
+    "status": resposta.status_code
+            }, resposta.status_code
+     
+@app.patch("/produtos/<id>/mudar")
+def mudar_produto(id):
+    produto = buscar_produtos(id)
+    produto.update(request.json)
+    resposta = requests.patch(f"https://fakestoreapi.com/products/{id}", json=produto)
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+     return {
+    "erro": "Falha ao consultar a Fake Store.",
+    "status": resposta.status_code
+            }, resposta.status_code
+     
+@app.delete("/produtos/<id>/deletar")
+def apagar_produto(id):
+    resposta = requests.delete(f"https://fakestoreapi.com/products/{id}")
+    dados = resposta.json()
+    if resposta.status_code == 200:
+        return dados
+    else:
+        return {
+              "erro": "Falha ao consultar a Fake Store.",
+              "status": resposta.status_code
+            }, resposta.status_code
         
-        return{
-            "mensagem": "Produto atualizado com sucesso!",
-            "produto" : produto          
-        }
-    return {
-"erro" : "Produto não encontrado"
-         }, 404
-
-
+        
 app.run(debug=True)
